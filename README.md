@@ -1,4 +1,5 @@
 **OBS: O sistema terá duas versões. Uma versão gratuita(pessoal) e uma versão paga (empresarial).**
+
 **OBS: Os bancos de dados ainda não serão projetados antes que a gente tenha uma versão de planejamento estável.**
 
 ### SISTEMA EMPRESAS ###
