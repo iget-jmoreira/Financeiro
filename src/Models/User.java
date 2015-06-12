@@ -5,7 +5,7 @@ public class User {
 		
 	}
 	
-	public void editUser(int user_id, String password){
+	public void updateUser(int user_id, String password, String query){
 		
 	}
 	
