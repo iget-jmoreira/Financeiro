@@ -2,8 +2,6 @@ package Views;
 
 import javax.swing.JFrame;
 
-//oi
-
 public class Index{
 	public static void main(String[] args){
 		//instacia elementos para serem visualizados
