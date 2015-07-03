@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class DefaultSettings {
+public class DefaultSettings{
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	public double width = screenSize.getWidth() - 100;
 	public double height = screenSize.getHeight() - 180;
@@ -17,11 +17,8 @@ public class DefaultSettings {
 		frame.setBounds((int)x, 80,(int) width,(int) height);
 		panel.setLayout(null);
 		panel.setBackground(Color.WHITE);
-		JLabel top = new JLabel("<html><p style='font-size:28px;'>Financial System</p></html>");
-		top.setBounds((int)((screenSize.getWidth() / 2) - 202), 20, 344, 45);
+		JLabel top = new JLabel("<html><p style='font-size:24px;'>Financial System</p></html>");
+		top.setBounds(80, 20, 344, 45);
 		panel.add(top);
-		
 	}
-	
-
 }

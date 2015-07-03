@@ -1,6 +1,8 @@
 package Views;
 
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
@@ -9,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import Controllers.BaseController;
 
 public class SelectSystem extends JFrame{
 	/**
@@ -51,10 +55,22 @@ public class SelectSystem extends JFrame{
 		c.add(panel);
 		// BASE CODE //
 	}
+	// BASE CODE //
+	public void paint(Graphics g){
+		/**
+		 * Função para desenhar uma linha embaixo do titulo
+		 */
+		super.paint(g);
+		g.setColor(Color.BLACK);
+		g.drawLine(60, 90, getWidth() - 60, 90);
+	}
+	// BASE CODE //
 	
 	class SystemAction extends AbstractAction{
 		/**
-		 * 
+		 * Aqui ficam as ações do sistema
+		 * Caso receba true irá redirecionar para login com a variável x = "personal"
+		 * Caso receba false irá para login com a variável x = "coorporative"
 		 */
 		private static final long serialVersionUID = 1L;
 		public boolean choice;
@@ -64,10 +80,11 @@ public class SelectSystem extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
+			BaseController baseC = new BaseController();
 			if(choice == true){
-				System.out.println("Go to Personal");
+				baseC.goTo(SelectSystem.this, new Login("personal"));
 			} else{
-				System.out.println("Go to Coorporative");
+				baseC.goTo(SelectSystem.this, new Login("coorporative"));
 			}
 		}
 		
