@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 public class Main {
 	public static void main(String[] args){
-		//instacia elementos para serem visualizados		
+		//estancia elementos para serem visualizados		
 		SelectSystem page = new SelectSystem();
 //		Login page = new Login("personal");
 //		SignUp page = new SignUp("personal");
