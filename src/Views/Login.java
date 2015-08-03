@@ -109,7 +109,7 @@ public class Login extends JFrame{
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
 			User user = new User();
-			boolean result = user.searchUser(Login.this.username_tf.getText(), String.valueOf(Login.this.password_pf.getPassword()), this.systemType);
+			boolean result = user.searchUser(Login.this.username_tf.getText(), String.valueOf(Login.this.password_pf.getPassword()), null);
 			if(result){
 				baseC.goTo(Login.this, new Home(this.systemType));
 			} else{

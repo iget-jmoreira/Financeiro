@@ -163,7 +163,12 @@ public class SignUp extends JFrame{
 			String dob = day+"/"+month+"/"+year;
 			if(password.equals(passwordVerify)){
 				user.createUser(email, username, password, accountType, null, dob);
-				boolean result = user.searchUser(username, password, accountType);
+				boolean result = false;
+				if(accountType == "personal"){
+					result = user.searchUser(username, password, null);
+				} else {
+					result = user.searchUser(username, password, 1);
+				}
 				if(result){
 					baseC.goTo(SignUp.this, new Home(accountType));
 				} else{
