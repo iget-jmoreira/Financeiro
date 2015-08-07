@@ -162,15 +162,9 @@ public class SignUp extends JFrame{
 			String year = SignUp.this.year_tf.getText();
 			String dob = day+"/"+month+"/"+year;
 			if(password.equals(passwordVerify)){
-				user.createUser(email, username, password, accountType, null, dob);
-				boolean result = false;
-				if(accountType == "personal"){
-					result = user.searchUser(username, password, null);
-				} else {
-					result = user.searchUser(username, password, 1);
-				}
-				if(result){
-					baseC.goTo(SignUp.this, new Home(accountType));
+				if(user.createUser(email, username, password, accountType, null, dob)){
+					baseC.close(SignUp.this);
+					new Controllers.HomeController("Index", accountType);
 				} else{
 					baseC.popUp("Login Fail", "Username or Password are not!");
 					baseC.goTo(SignUp.this, new Login(accountType));

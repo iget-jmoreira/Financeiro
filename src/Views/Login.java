@@ -111,7 +111,8 @@ public class Login extends JFrame{
 			User user = new User();
 			boolean result = user.searchUser(Login.this.username_tf.getText(), String.valueOf(Login.this.password_pf.getPassword()), null);
 			if(result){
-				baseC.goTo(Login.this, new Home(this.systemType));
+				baseC.close(Login.this);
+				new Controllers.HomeController("Index", this.systemType);
 			} else{
 				baseC.popUp("Login Fail", "Username or Password not exists!");
 				Login.this.username_tf.setText("");

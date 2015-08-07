@@ -10,6 +10,12 @@ public class BaseController {
 		destination.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		destination.setVisible(true);
 	}
+	
+	public void close(JFrame actual){
+		actual.setVisible(false);
+		actual.dispose();
+	}
+	
 	public void popUp(String title, String message){
 		JOptionPane.showMessageDialog(null, message, title, JOptionPane.ERROR_MESSAGE);
 	}

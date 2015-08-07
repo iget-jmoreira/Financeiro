@@ -45,7 +45,7 @@ public class CreateDatabase {
 					+ "company_id INT,"
 					+ "username VARCHAR(255) NOT NULL,"
 					+ "password VARCHAR(255) NOT NULL,"
-					+ "dob DATE,"
+					+ "dob VARCHAR(10),"
 					+ "contact_phone VARCHAR(255),"
 					+ "contact_email VARCHAR(255) NOT NULL,"
 					+ "FOREIGN KEY (company_id) REFERENCES companies(id),"

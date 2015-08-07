@@ -5,24 +5,24 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 
 public class User {
 	private String server = "jdbc:mysql://localhost/finance", user = "root", password = "";
 	
-	public void createUser(String email, String username, String password, String accountType, Object companyId, String dob){
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	public boolean createUser(String email, String username, String password, String accountType, Object companyId, String dob){
 		Connection conn;
 		Statement stmt;
+		boolean result = false;
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(this.server, this.user, this.password);
 			stmt = conn.createStatement();
 			if(accountType.equals("personal")){
-				stmt.executeUpdate("INSERT INTO users (username, password, dob, contact_email) VALUES ('"+username+"', '"+password+"', '"+formatter.format(dob)+"', '"+email+"')");	
+				stmt.executeUpdate("INSERT INTO users (username, password, dob, contact_email) VALUES ('"+username+"', '"+password+"', '"+dob+"', '"+email+"')");	
 			} else {
-				stmt.executeUpdate("INSERT INTO users (company_id, username, password, dob, contact_email) VALUES ('"+companyId+"', '"+username+"', '"+password+"', '"+formatter.format(dob)+"', '"+email+"')");
+				stmt.executeUpdate("INSERT INTO users (company_id, username, password, dob, contact_email) VALUES ('"+companyId+"', '"+username+"', '"+password+"', '"+dob+"', '"+email+"')");
 			}
+			result = true;
 		} catch(ClassNotFoundException e){
 			System.out.println("Erro no Driver "+e.getMessage());
 			e.printStackTrace();
@@ -30,6 +30,7 @@ public class User {
 			System.out.println("Erro do BD "+e.getMessage());
 			e.printStackTrace();
 		}
+		return result;
 	}
 	
 	public void updateUser(Object column, Object value, String query){
